@@ -4,9 +4,11 @@
 The AzTemplateSpecsPrivatePreview script(s) control the installation of the private preview cmdlets used to manage Template Specs. To install the private preview cmdlets on your machine, you can follow these steps:
 
 1. Install the latest Az Powershell modules (see https://docs.microsoft.com/en-us/powershell/azure/install-az-ps)
+
 1. Download the [AzTemplateSpecsPrivatePreview](https://github.com/Azure/template-specs/releases/download/v0.1/AzTemplateSpecsPrivatePreview.zip) zip package from the Releases page in this repo.
 1. Open a new Powershell window as Administrator.
-1. Because the private preview scripts are not signed, you will need to setup a bypass for local signing policy. To do so, run "Set-ExecutionPolicy Bypass -Scope Process" in your Powershell window. Note: This will only enable bypass for the current powershell process/window.
+1. Because the private preview scripts are not signed, you will need to setup a bypass for local signing policy. To do so, run `Set-ExecutionPolicy Bypass -Scope Process` in your Powershell window. Note: This will only enable bypass for the current powershell process/window.
+1. Ensure you are logged in to Azure by running `Login-AzAccount` or `Connect-AzAccount`
 1. Unzip the downloaded package and execute AzTemplateSpecsPrivatePreview.ps1 and follow the step-by-step prompts.
 1. After installation, set the current subscription context (Set-AzContext) to the subscription onboarded to Private Preview and give the new Template Spec cmdlets a try!
 
