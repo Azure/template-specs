@@ -1,5 +1,12 @@
 # Welcome to the Template Specs Private Preview
 
+## Read the docs
+* [Template Specs overview]()
+* [Quickstart: Create and deploy a template spec]()
+* [Tutorial: Create a template spec with linked templates]()
+* [Tutorial: Deploy a template spec as a linked template]()
+
+
 ## To install the PowerShell cmdlets
 The AzTemplateSpecsPrivatePreview script(s) control the installation of the private preview cmdlets used to manage Template Specs. To install the private preview cmdlets on your machine, you can follow these steps:
 
@@ -14,8 +21,11 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 1. After installation, set the current subscription context (`Set-AzContext`) to the subscription onboarded to Private Preview and give the new Template Spec cmdlets a try! If you try to run one of the `*-AzTemplateSpec` cmdlets on a non-whitelisted subscription, you will get a `Not found` error.
 
 ## Known limitations
-* The Private Preview is PowerShell and REST for now. CLI support is 2-4 weeks out. Portal support will come in the next 1-2 months.
-* The relativePath property will *only* work for TemplateSpec-based deployments. If you use this property in a generic template deployment (from your local file system, for example), the deployment will fail and tell you the relativePath property is not valid. During the private preview, we will enable support for this property in generic deployments.
+* The Private Preview is PowerShell and REST for now. CLI support is 2-4 weeks out. Robust portal support will come in the next 1-2 months.
+  - If you are eager to get a glimpse of portal support, you can try it by using [this hidekey](https://ms.portal.azure.com/?feature.showassettypes=Microsoft_Azure_TemplateSpecs_ArmTemplateSpecsHub&Microsoft_Azure_TemplateSpecs=true&feature.canmodifyextensions=true#blade/Microsoft_Azure_TemplateSpecs/TemplateSpecsMenuBlade/TemplatesList), but it is **not recommended** as it is a very old build that will be mostly replaced. Key limitations include:
+     * Portal deployment of a template spec with linked templates (using `relativePath`) will fail
+     * No ability to view artifacts (linked templates) packaged with a template spec
+* The relativePath property will *only* work for TemplateSpec-based deployments. If you use this property in a generic template deployment (from your local file system or from an external URI), the deployment will fail and tell you the relativePath property is not valid. During the private preview, we will enable support for this property in generic deployments.
 * System wide install support for Linux and macOS is currently disabled due to a bug. We are looking to get this resolved by 7/24.
 * Template Specs with a description will fail to deploy. The fix for this issue has already been checked in and will be fully deployed by 7/28. ([Link to issue](https://github.com/Azure/template-specs/issues/13))
 * Passing parameters using dynamic parameters (e.g. `New-AzResourceGroupDeployment ... -myTemplateParam` is not currently working. ([Link to issue](https://github.com/Azure/template-specs/issues/9))
