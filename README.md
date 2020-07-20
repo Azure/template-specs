@@ -10,7 +10,7 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 1. Open a new Powershell window as Administrator and navigate to the unzipped directory
 1. Ensure you are logged in to Azure by running `Login-AzAccount` or `Connect-AzAccount`. The installation will fail if you are not logged in to Azure.
 1. Because the private preview scripts are not signed, you will need to setup a bypass for local signing policy. To do so, run `Set-ExecutionPolicy Bypass -Scope Process` in your Powershell window. Note: This will only enable bypass for the current powershell process/window.
-1. Unzip the downloaded package and execute AzTemplateSpecsPrivatePreview.ps1 and follow the step-by-step prompts.
+1. Execute the AzTemplateSpecsPrivatePreview.ps1 installation script and follow the step-by-step prompts.
 1. After installation, set the current subscription context (Set-AzContext) to the subscription onboarded to Private Preview and give the new Template Spec cmdlets a try! If you try to run one of the `*-AzTemplateSpec` cmdlets on a non-whitelisted subscription, you will get a `Not found` error.
 
 ## Known limitations
