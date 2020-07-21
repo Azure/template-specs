@@ -27,7 +27,6 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 * The relativePath property will *only* work for TemplateSpec-based deployments. If you use this property in a generic template deployment (from your local file system or from an external URI), the deployment will fail and tell you the relativePath property is not valid. During the private preview, we will enable support for this property in generic deployments.
 * System wide install support for Linux and macOS is currently disabled due to a bug. We are looking to get this resolved by 7/24.
 * Template Specs with a description will fail to deploy. The fix for this issue has already been checked in and will be fully deployed by 7/28. ([Link to issue](https://github.com/Azure/template-specs/issues/13))
-* Passing parameters using dynamic parameters (e.g. `New-AzResourceGroupDeployment ... -myTemplateParam` is not currently working. ([Link to issue](https://github.com/Azure/template-specs/issues/9))
 
 For a full list of issues, or to file a new one, look at the [issues tab](https://github.com/azure/template-specs/issues).
 
