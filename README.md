@@ -1,13 +1,14 @@
 # Welcome to the Template Specs Private Preview
 
 ## Read the docs
-* [Template Specs overview]()
-* [Quickstart: Create and deploy a template spec]()
-* [Tutorial: Create a template spec with linked templates]()
-* [Tutorial: Deploy a template spec as a linked template]()
 
+* [Template Specs overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-specs)
+* [Quickstart: Create and deploy a template spec](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-template-specs)
+* [Tutorial: Create a template spec with linked templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-specs-create-linked)
+* [Tutorial: Deploy a template spec as a linked template](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-specs-deploy-linked-template)
 
 ## To install the PowerShell cmdlets
+
 The AzTemplateSpecsPrivatePreview script(s) control the installation of the private preview cmdlets used to manage Template Specs. To install the private preview cmdlets on your machine, you can follow these steps:
 
 1. Install the latest Az Powershell modules (see https://docs.microsoft.com/en-us/powershell/azure/install-az-ps)
@@ -21,10 +22,11 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 1. After installation, set the current subscription context (`Set-AzContext`) to the subscription onboarded to Private Preview and give the new Template Spec cmdlets a try! If you try to run one of the `*-AzTemplateSpec` cmdlets on a non-whitelisted subscription, you will get a `Not found` error.
 
 ## Known limitations
+
 * The Private Preview is PowerShell and REST for now. CLI support is 2-4 weeks out. Robust portal support will come in the next 1-2 months.
-  - If you are eager to get a glimpse of portal support, you can try it by using [this hidekey](https://ms.portal.azure.com/?feature.showassettypes=Microsoft_Azure_TemplateSpecs_ArmTemplateSpecsHub&Microsoft_Azure_TemplateSpecs=true&feature.canmodifyextensions=true#blade/Microsoft_Azure_TemplateSpecs/TemplateSpecsMenuBlade/TemplatesList), but it is **not recommended** as it is a very old build that will be mostly replaced. Key limitations include:
-     * Portal deployment of a template spec with linked templates (using `relativePath`) will fail
-     * No ability to view artifacts (linked templates) packaged with a template spec
+  * If you are eager to get a glimpse of portal support, you can try it by using [this hidekey](https://ms.portal.azure.com/?feature.showassettypes=Microsoft_Azure_TemplateSpecs_ArmTemplateSpecsHub&Microsoft_Azure_TemplateSpecs=true&feature.canmodifyextensions=true#blade/Microsoft_Azure_TemplateSpecs/TemplateSpecsMenuBlade/TemplatesList), but it is **not recommended** as it is a very old build that will be mostly replaced. Key limitations include:
+    * Portal deployment of a template spec with linked templates (using `relativePath`) will fail
+    * No ability to view artifacts (linked templates) packaged with a template spec
 * The relativePath property will *only* work for TemplateSpec-based deployments. If you use this property in a generic template deployment (from your local file system or from an external URI), the deployment will fail and tell you the relativePath property is not valid. During the private preview, we will enable support for this property in generic deployments.
 * System wide install support for Linux and macOS is currently disabled due to a bug. We are looking to get this resolved by 7/24.
 * Template Specs with a description will fail to deploy. The fix for this issue has already been checked in and will be fully deployed by 7/28. ([Link to issue](https://github.com/Azure/template-specs/issues/13))
@@ -32,7 +34,7 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 
 For a full list of issues, or to file a new one, look at the [issues tab](https://github.com/azure/template-specs/issues).
 
-# Contributing
+## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
