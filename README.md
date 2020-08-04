@@ -13,7 +13,7 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 
 1. Install the latest Az Powershell modules (see https://docs.microsoft.com/en-us/powershell/azure/install-az-ps)
 
-1. Download the [AzTemplateSpecsPrivatePreview](https://github.com/Azure/template-specs/releases/download/v0.1.3/AzTemplateSpecsPrivatePreview.zip) zip package from the [Releases](https://github.com/Azure/template-specs/releases) page in this repo.
+1. Download the [AzTemplateSpecsPrivatePreview](https://github.com/Azure/template-specs/releases/download/v0.1.4/AzTemplateSpecsPrivatePreview.zip) zip package from the [Releases](https://github.com/Azure/template-specs/releases) page in this repo.
 1. Unzip the downloaded package
 1. Open a new Powershell window **as Administrator** and navigate to the unzipped directory
 1. Ensure you are logged in to Azure by running `Login-AzAccount` or `Connect-AzAccount`. The installation will fail if you are not logged in to Azure.
