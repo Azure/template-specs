@@ -24,6 +24,10 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 ## Known limitations
 
 * The Private Preview is PowerShell and REST for now. CLI support is 2-4 weeks out. Robust portal support will come in the next 1-2 months.
+  * If you are eager to get a glimpse of portal support, you can try it by using [this hidekey](https://ms.portal.azure.com/?feature.showassettypes=Microsoft_Azure_TemplateSpecs_ArmTemplateSpecsHub&Microsoft_Azure_TemplateSpecs=true&feature.canmodifyextensions=true#blade/Microsoft_Azure_TemplateSpecs/TemplateSpecsMenuBlade/TemplatesList), but keep in mind *it is a very old build that will be mostly replaced.* Key limitations include:	
+    * Portal deployment of a template spec with linked templates (using `relativePath`) will fail	
+    * No ability to view artifacts (linked templates) packaged with a template spec
+    * No ability to view a single version of a template spec. As a workaround, you can edit a single version 
 * The relativePath property will *only* work for TemplateSpec-based deployments. If you use this property in a generic template deployment (from your local file system or from an external URI), the deployment will fail and tell you the relativePath property is not valid. During the private preview, we will enable support for this property in generic deployments.
 * System wide install support for Linux and macOS is currently disabled due to a bug. We are looking to get this resolved by 7/24.
 * Template Specs with a description will fail to deploy. The fix for this issue has already been checked in and will be fully deployed by 7/28. ([Link to issue](https://github.com/Azure/template-specs/issues/13))
