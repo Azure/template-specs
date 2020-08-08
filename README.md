@@ -13,7 +13,7 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 
 1. Install the latest Az Powershell modules (see https://docs.microsoft.com/en-us/powershell/azure/install-az-ps)
 
-1. Download the [AzTemplateSpecsPrivatePreview](https://github.com/Azure/template-specs/releases/download/v0.1.4/AzTemplateSpecsPrivatePreview.zip) zip package from the [Releases](https://github.com/Azure/template-specs/releases) page in this repo.
+1. Download the [AzTemplateSpecsPrivatePreview](https://github.com/Azure/template-specs/releases/download/v0.1.5/AzTemplateSpecsPrivatePreview.zip) zip package from the [Releases](https://github.com/Azure/template-specs/releases) page in this repo.
 1. Unzip the downloaded package
 1. Open a new Powershell window **as Administrator** and navigate to the unzipped directory
 1. Ensure you are logged in to Azure by running `Login-AzAccount` or `Connect-AzAccount`. The installation will fail if you are not logged in to Azure.
@@ -29,7 +29,6 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
     * No ability to view artifacts (linked templates) packaged with a template spec
     * No ability to view a single version of a template spec. As a workaround, you can edit a single version 
 * The relativePath property will *only* work for TemplateSpec-based deployments. If you use this property in a generic template deployment (from your local file system or from an external URI), the deployment will fail and tell you the relativePath property is not valid. During the private preview, we will enable support for this property in generic deployments.
-* System wide install support for Linux and macOS is currently disabled due to a bug. We are looking to get this resolved by 7/24.
 * Template Specs with a description will fail to deploy. The fix for this issue has already been checked in and will be fully deployed by 7/28. ([Link to issue](https://github.com/Azure/template-specs/issues/13))
 
 For a full list of issues, or to file a new one, look at the [issues tab](https://github.com/azure/template-specs/issues).
