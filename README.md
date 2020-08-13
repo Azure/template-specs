@@ -38,7 +38,8 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 #### via pip3
 
 1. Download the latest artifacts from the [Releases](https://github.com/Azure/template-specs/releases)
-2. Run:
+1. Navigate to the `.\Azure_CLI\Linux\` directory
+1. Run:
 ```powershell
 pip3 install wheel
 pip3 install azure_cli_core-2.10.1-py3-none-any.whl
@@ -56,6 +57,7 @@ sudo pip3 install wheel
 ```
 
 1. Since the repo is private, we recommend installing the latest artifacts from the the [Releases](https://github.com/Azure/template-specs/releases) page from a browser.
+1. Navigate to the `./Azure_CLI/Linux/` directory
 1. Run
 
 ```bash
@@ -75,7 +77,8 @@ pip3 install wheel
 ```
 
 1. Download the latest artifacts from the [Releases](https://github.com/Azure/template-specs/releases)
-2. Run:
+1. Navigate to the `./Azure_CLI/Linux/` directory
+1. Run:
 ```bash
 pip3 install azure_cli_core-2.10.1-py3-none-any.whl
 pip3 install azure_cli-2.10.1-py3-none-any.whl
