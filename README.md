@@ -84,7 +84,7 @@ pip3 install azure_cli-2.10.1-py3-none-any.whl
 ## Known limitations
 
 * The relativePath property will *only* work for TemplateSpec-based deployments. If you use this property in a generic template deployment (from your local file system or from an external URI), the deployment will fail and tell you the relativePath property is not valid. During the private preview, we will enable support for this property in generic deployments.
-* The Private Preview is PowerShell, CLI, and REST for now -- no good portal support. Robust portal support will come in the next 1-2 months.
+* The Private Preview is PowerShell, CLI, and REST for now -- portal support is incomplete. Robust portal support will come in the next 1-2 months.
   * If you are eager to get a glimpse of portal support, you can try it by using [this hidekey](https://ms.portal.azure.com/?feature.showassettypes=Microsoft_Azure_TemplateSpecs_ArmTemplateSpecsHub&Microsoft_Azure_TemplateSpecs=true&feature.canmodifyextensions=true#blade/Microsoft_Azure_TemplateSpecs/TemplateSpecsMenuBlade/TemplatesList), but keep in mind *it is a very old build that will be mostly replaced.* Key limitations include:	
     * Portal deployment of a template spec with linked templates (using `relativePath`) will fail	
     * No ability to view artifacts (linked templates) packaged with a template spec
