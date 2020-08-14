@@ -57,7 +57,7 @@ sudo apt-get install python3-pip
 sudo pip3 install wheel
 ```
 
-1. Since the repo is private, we recommend installing the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.6/Azure_CLI.zip) from the the [Releases](https://github.com/Azure/template-specs/releases) page from a browser.
+1. Since the repo is private, we recommend installing the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.6/Azure_CLI.zip) from the [Releases](https://github.com/Azure/template-specs/releases) page from a browser.
 1. Navigate to the `./Azure_CLI/Linux/` directory
 1. Run
 
