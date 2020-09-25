@@ -13,7 +13,7 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 
 1. Install the latest Az Powershell modules (see https://docs.microsoft.com/en-us/powershell/azure/install-az-ps)
 
-1. Download the [AzTemplateSpecsPrivatePreview](https://github.com/Azure/template-specs/releases/download/v0.1.6/Azure_PowerShell.zip) zip package from the [Releases](https://github.com/Azure/template-specs/releases) page in this repo.
+1. Download the [AzTemplateSpecsPrivatePreview](https://github.com/Azure/template-specs/releases/download/v0.1.8/Azure_PowerShell.zip) zip package from the [Releases](https://github.com/Azure/template-specs/releases) page in this repo.
 1. Unzip the downloaded package
 1. Open a new Powershell window **as Administrator** and navigate to the unzipped directory
 1. Ensure you are logged in to Azure by running `Login-AzAccount` or `Connect-AzAccount`. The installation will fail if you are not logged in to Azure.
@@ -26,7 +26,7 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 ### On Windows
 
 #### via MSI
-1. Download the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.6/Azure_CLI.zip) from the [Releases](https://github.com/Azure/template-specs/releases)
+1. Download the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.8/Azure_CLI.zip) from the [Releases](https://github.com/Azure/template-specs/releases)
 1. Unzip the downloaded package
 1. Navigate to `.\Azure_CLI\Windows\`
 1. Run the extracted MSI
@@ -38,7 +38,7 @@ The AzTemplateSpecsPrivatePreview script(s) control the installation of the priv
 
 #### via pip3
 
-1. Download the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.6/Azure_CLI.zip) from the [Releases](https://github.com/Azure/template-specs/releases)
+1. Download the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.8/Azure_CLI.zip) from the [Releases](https://github.com/Azure/template-specs/releases)
 1. Navigate to the `.\Azure_CLI\Linux\` directory
 1. Run:
 ```powershell
@@ -57,7 +57,7 @@ sudo apt-get install python3-pip
 sudo pip3 install wheel
 ```
 
-1. Since the repo is private, we recommend installing the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.6/Azure_CLI.zip) from the [Releases](https://github.com/Azure/template-specs/releases) page from a browser.
+1. Since the repo is private, we recommend installing the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.8/Azure_CLI.zip) from the [Releases](https://github.com/Azure/template-specs/releases) page from a browser.
 1. Navigate to the `./Azure_CLI/Linux/` directory
 1. Run
 
@@ -77,7 +77,7 @@ brew install python3-pip
 pip3 install wheel
 ```
 
-1. Download the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.6/Azure_CLI.zip) from the [Releases](https://github.com/Azure/template-specs/releases)
+1. Download the latest [Azure_CLI zip package](https://github.com/Azure/template-specs/releases/download/v0.1.8/Azure_CLI.zip) from the [Releases](https://github.com/Azure/template-specs/releases)
 1. Navigate to the `./Azure_CLI/Linux/` directory
 1. Run:
 ```bash
@@ -91,9 +91,6 @@ pip3 install azure_cli-2.10.1-py3-none-any.whl
 * The Private Preview is PowerShell, CLI, and REST for now -- portal support is incomplete. Robust portal support will come in the next 1-2 months.
   * If you are eager to get a glimpse of portal support, you can try it by using [this hidekey](https://ms.portal.azure.com/?feature.showassettypes=Microsoft_Azure_TemplateSpecs_ArmTemplateSpecsHub&Microsoft_Azure_TemplateSpecs=true&feature.canmodifyextensions=true#blade/Microsoft_Azure_TemplateSpecs/TemplateSpecsMenuBlade/TemplatesList), but keep in mind *it is a very old build that will be mostly replaced.* Key limitations include:	
     * Portal deployment of a template spec with linked templates (using `relativePath`) will fail	
-    * No ability to view artifacts (linked templates) packaged with a template spec
-    * No ability to view a single version of a template spec. As a workaround, you can edit a single version 
-
 
 For a full list of issues, or to file a new one, look at the [issues tab](https://github.com/azure/template-specs/issues).
 
