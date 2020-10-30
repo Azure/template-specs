@@ -13,6 +13,9 @@ Install the latest version of [Azure PowerShell](https://docs.microsoft.com/powe
 ## To install the CLI commands
 Install the latest version of the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
+## To manage template specs in the Azure Portal
+The work here is not *quite* done, but you can play with what's currently complete at https://aka.ms/gettemplates
+
 ## Known limitations
 
 * The relativePath property will *only* work for TemplateSpec-based deployments. If you use this property in a generic template deployment (from your local file system or from an external URI), the deployment will fail and tell you the relativePath property is not valid. During the private preview, we will enable support for this property in generic deployments.
