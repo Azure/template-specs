@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BuiltInTemplateSpecVersionMetadata",
+  "type": "object",
+  "description": "Contains information about a built-in template spec version, such as description and supported clouds, etc.",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the built-in template spec version. For new versions, these can include change notes."
+    },
+    "supportedClouds": {
+      "type": "array",
+      "description": "The Azure cloud environments where this version is supported. Note that if Prod is supported, DF must be supported as well. Value details: 'DF' - Internal Microsoft Test Cloud, 'FF' - US Gov Cloud, 'Prod' - Public Azure, 'MC' - Chinese National Cloud.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "DF",
+          "FF",
+          "MC",
+          "Prod"
+        ]
+      },
+      "additionalItems": false,
+      "additionalProperties": false
+    },
+    "supportsAirGapped": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indicates whether this built-in is supported on air-gapped clouds."
+    },
+    "launchDateUtc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The earliest date/time that the built-in version should be made available for use."
+    }
+  },
+  "required": [
+    "description",
+    "supportedClouds"
+  ],
+  "additionalProperties": false
+}

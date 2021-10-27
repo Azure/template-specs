@@ -1,0 +1,9 @@
+{
+  "description": "Allows you to deploy a simple Windows VM using a few different options for the Windows version, using the latest patched version. This will deploy a A2 size VM in the resource group location and return the fully qualified domain name of the VM.",
+  "supportedClouds": [
+    "DF",
+    "Prod"
+  ],
+  "supportsAirGapped": true,
+  "launchDateUtc": "2021-09-04T00:00:00Z"
+}

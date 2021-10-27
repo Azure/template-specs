@@ -1,0 +1,9 @@
+{
+  "description": "Creates a new Shared Image Gallery for VM images",
+  "supportedClouds": [
+    "DF",
+    "Prod"
+  ],
+  "supportsAirGapped": true,
+  "launchDateUtc": "2021-09-03T00:00:00Z"
+}

@@ -1,0 +1,6 @@
+{
+  "displayName" : "Create Shared Image Gallery",
+  "description": "Creates a new Shared Image Gallery for VM images.",
+  "documentationUrl": "https://github.com/Azure/azure-quickstart-templates/tree/master/modules/Microsoft.Compute/galleries/create/1.0",
+  "category": "General"
+}

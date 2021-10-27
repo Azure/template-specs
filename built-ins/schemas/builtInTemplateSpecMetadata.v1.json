@@ -1,0 +1,41 @@
+{
+  "title": "BuiltInTemplateSpecMetadata",
+  "type": "object",
+  "description": "Contains information about a built-in template spec, such as display name, documentation url, etc.",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "A user friendly name for the built-in that will be displayed to users within the Azure Portal.",
+      "maxLength": 40
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the built-in template spec."
+    },
+    "documentationUrl": {
+      "type": "string",
+      "description": "Link to documentation related to the built-in.",
+      "format": "uri"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "General",
+        "QuickStart"
+      ]
+    },
+    "icmPath": {
+      "type": "string",
+      "description": "Relevant to built-ins created by Microsoft. The internal ICM path of the owning team."
+    }
+  },
+  "required": [
+    "displayName",
+    "description",
+    "category"
+  ],
+  "additionalProperties": false
+}
