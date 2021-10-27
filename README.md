@@ -1,4 +1,4 @@
-# Welcome to the Template Specs Private Preview
+# Azure Template Specs
 
 ## Read the docs
 
@@ -17,10 +17,6 @@ Install the latest version of the [Azure CLI](https://docs.microsoft.com/cli/azu
 The work here is not *quite* done, but you can play with what's currently complete at https://aka.ms/gettemplates
 
 ## Known limitations
-
-* The relativePath property will *only* work for TemplateSpec-based deployments. If you use this property in a generic template deployment (from your local file system or from an external URI), the deployment will fail and tell you the relativePath property is not valid. During the private preview, we will enable support for this property in generic deployments.
-* The portal experience for template specs is only available through a hidekey. Navigate to https://aka.ms/gettemplates to use the portal experience.
-
 For a full list of issues, or to file a new one, look at the [issues tab](https://github.com/azure/template-specs/issues).
 
 ## Contributing
