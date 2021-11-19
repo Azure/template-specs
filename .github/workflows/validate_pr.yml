@@ -1,0 +1,73 @@
+# Workflow that will reject non-contributors submitting PRs. The PRs will be auto-closed if the
+# submitter is not a contributor of the project.
+
+name: Validate PR Authorization
+on: [pull_request_target]
+jobs:
+  check_access:
+    runs-on: ubuntu-latest
+    name: Reject Unauthorized PRs
+
+    steps:
+      - name: Reject if submitter is not collaborator
+        uses: actions/github-script@v5
+        with:
+         script: |
+          var isVerifiedCollaborator = false
+          try {
+            var collaboratorUrl = `https://api.github.com/repos/${context.payload.repository.full_name}/collaborators/${{ github.actor }}`
+            core.info(`Performing GET on '${collaboratorUrl}'`)
+            var response = await github.request(`GET ${collaboratorUrl}`, {
+             headers: {
+              "Authorization" : "token ${{ secrets.GITHUB_TOKEN }}"
+             }
+            })
+            
+            core.debug(`Collaborator request returned status code: '${response.status}'`)    
+            isVerifiedCollaborator = (response != null && response.status == 204);
+          }
+          catch (err) {
+            if (err.status) {
+             core.debug(`Collaborator request returned status code: '${err.status}'`)
+            } else {
+             // No status code was returned...
+             core.setFailed(`Encountered error during collaborator status check: ${err}`)
+            }
+          }
+          
+          if (!isVerifiedCollaborator) {
+          
+               github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                body: 'Closing PR automatically. Only project collaborators are authorized to submit PRs, and ${{ github.actor }} is not an authorized collaborator.',
+               })
+               
+               github.rest.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.payload.pull_request.number,
+                state: 'closed',
+               })
+               
+               github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                labels: [ "UnverifiedSubmitter" ]
+               })
+             
+              core.setFailed('PR Submitter is not an authorized repo collaborator!')
+          } else {
+               github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                labels: [ "VerifiedSubmitter" ]
+              })
+
+              core.info("${{ github.actor }} is validated as a collaborator!")
+          }
+          
+    
