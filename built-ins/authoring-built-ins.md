@@ -1,4 +1,4 @@
-> ⚠️ Built-in Template Specs are a feature in development and are currently not available for public use. This document describes the initial process required for built-in template spec authoring, but will remain incomplete (contains some placeholds) until the feature has shipped.
+> ⚠️ Built-in Template Specs are a feature in development and are currently not available for public use. This document describes the initial process required for built-in template spec authoring, but will remain incomplete (contains some placeholders) until the feature has shipped.
 
 
  **IMPORTANT:** Authoring and contribution of Built-in Template Specs is restricted to **authorized collaborators only** such as internal Microsoft teams and partners. PRs from unauthorized individuals will be rejected with no exceptions.
@@ -126,7 +126,7 @@ Unless your update meets one of the exception scenarios above, you should submit
 
 ## I want to remove an existing built-in, what should I do?
 
-Built-ins should never be removed (doing so will break customers referencing the built-in during their deployments). We are currently working on implementing deprecation logic for this purpose. If you need a built-in removed for a **critical security issue** please contact {to_be_determined}@microsoft.com with details.
+Built-ins should never be removed (doing so will break customers referencing the built-in during their deployments). We are currently working on implementing deprecation logic for this purpose. If you need a built-in removed for a **critical security issue** please contact templatespecs@microsoft.com with details.
 
 ---
 _This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments._
