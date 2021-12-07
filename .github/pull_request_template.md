@@ -48,6 +48,7 @@ Please confirm that you've completed the following PR requirements:
 
 * [ ] I've read the [Authoring and Contributing Built-ins Documentation](../built-ins/authoring-built-ins.md).
 * [ ] I'm submitting this Template Spec built-in as part of an internal Microsoft team or approved partner.
-* [ ] I've deployed/tested the Template Spec as a standalone (non-built-in) Template Spec and validated the results.
+* [ ] I've deployed/tested the Template Spec as a standalone (non-built-in) Template Spec and validated the results. The correlation ID of the successful deployment is: **- ENTER CORRELATION ID HERE -**
+    * For more info on obtaining the correlation ID from your deployment see the official [documentation on viewing deployment correlation IDs](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-history?tabs=azure-portal).
     * _Template Specs will not be accepted unless you've extensively validated them first as a standard Template Spec within a resource group of your tenant._
 * [ ] I've filled out all sections of this pull request template.
