@@ -1,4 +1,4 @@
-# Welcome to the Template Specs Private Preview
+# Welcome to Template Specs
 
 ## Read the docs
 
