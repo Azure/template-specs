@@ -7,6 +7,7 @@ on: [pull_request_target]
 permissions:
   pull-requests: write
   issues: write
+  contents: read
 
 jobs:
   check_access:
@@ -20,7 +21,7 @@ jobs:
             const owner = context.repo.owner;
             const repo  = context.repo.repo;
             const pr    = context.payload.pull_request.number;
-            const actor = context.actor;
+            const actor = context.payload.pull_request.user.login;
 
             // 1) Trust GitHub's own author_association first (covers org MEMBERs and OWNER).
             const association = context.payload.pull_request.author_association;
