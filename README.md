@@ -22,7 +22,7 @@ Template Specs are generally available in the Azure portal. Search for **Templat
 
 ## Known limitations
 
-* The `relativePath` property in a `Microsoft.Resources/deployments` resource only works for template-spec–based deployments. If you use it in a generic template deployment (from a local file or external URI), the deployment will fail with a validation error stating that `relativePath` isn't valid.
+* The `relativePath` property in a `Microsoft.Resources/deployments` resource only works for template-spec-based deployments. If you use it in a generic template deployment (from a local file or external URI), the deployment will fail with a validation error stating that `relativePath` isn't valid.
 
 For a full list of issues, or to file a new one, see the [issues tab](https://github.com/Azure/template-specs/issues).
 
