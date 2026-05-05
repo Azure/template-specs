@@ -1,4 +1,4 @@
-# Welcome to the Template Specs Github
+# Welcome to the Template Specs on GitHub
 
 ## Read the docs
 
