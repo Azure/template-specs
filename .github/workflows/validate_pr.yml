@@ -1,5 +1,7 @@
 # Workflow that rejects PRs submitted by non-collaborators.
-# The PR is auto-closed and labeled when the submitter is not authorized.
+# Only users with explicit Admin or Write (Collaborator) permission on this
+# repository are authorized. Org membership alone is NOT sufficient.
+# PRs from anyone else are auto-closed and labeled.
 
 name: Validate PR Authorization
 on: [pull_request_target]
@@ -23,40 +25,44 @@ jobs:
             const pr    = context.payload.pull_request.number;
             const actor = context.payload.pull_request.user.login;
 
-            // 1) Trust GitHub's own author_association first (covers org MEMBERs and OWNER).
-            const association = context.payload.pull_request.author_association;
-            const trustedAssociations = ['OWNER', 'MEMBER', 'COLLABORATOR'];
-            let isVerified = trustedAssociations.includes(association);
-            core.info(`actor=${actor} association=${association}`);
+            // Only these repo permission levels are authorized to submit PRs.
+            // 'admin'    => Admin role
+            // 'maintain' => Maintain role (effectively admin minus a few settings)
+            // 'write'    => Collaborator with push access (the standard "Collaborator")
+            // Everything else (triage, read, none) is rejected — including plain org members.
+            const allowedPermissions = new Set(['admin', 'maintain', 'write']);
 
-            // 2) Fallback: explicit collaborator check via the built-in GITHUB_TOKEN.
-            if (!isVerified) {
-              try {
-                await github.rest.repos.checkCollaborator({ owner, repo, username: actor });
-                isVerified = true; // 204 => collaborator
-              } catch (err) {
-                if (err.status === 404) {
-                  isVerified = false;
-                } else {
-                  // Don't silently reject on transient/auth errors — fail loud so a maintainer can investigate.
-                  core.setFailed(`Collaborator check failed with status ${err.status}: ${err.message}`);
-                  return;
-                }
+            let permission = 'none';
+            try {
+              const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+                owner, repo, username: actor,
+              });
+              permission = data.permission;
+            } catch (err) {
+              if (err.status === 404) {
+                permission = 'none';
+              } else {
+                // Don't silently reject on transient/auth errors — fail loud so a maintainer can investigate.
+                core.setFailed(`Permission lookup for ${actor} failed with status ${err.status}: ${err.message}`);
+                return;
               }
             }
+
+            const isVerified = allowedPermissions.has(permission);
+            core.info(`actor=${actor} permission=${permission} verified=${isVerified}`);
 
             if (isVerified) {
               await github.rest.issues.addLabels({
                 owner, repo, issue_number: pr,
                 labels: ['VerifiedSubmitter'],
               });
-              core.info(`${actor} is validated as a collaborator.`);
+              core.info(`${actor} is authorized (permission=${permission}).`);
               return;
             }
 
             await github.rest.issues.createComment({
               owner, repo, issue_number: pr,
-              body: `Closing PR automatically. Only project collaborators are authorized to submit PRs, and \`${actor}\` is not an authorized collaborator.`,
+              body: `Closing PR automatically. Only repository Admins and Collaborators (with at least Write access) are authorized to submit PRs. \`${actor}\` has \`${permission}\` permission on this repository.`,
             });
             await github.rest.pulls.update({
               owner, repo, pull_number: pr, state: 'closed',
@@ -65,4 +71,4 @@ jobs:
               owner, repo, issue_number: pr,
               labels: ['UnverifiedSubmitter'],
             });
-            core.setFailed('PR submitter is not an authorized repo collaborator.');
+            core.setFailed(`PR submitter ${actor} is not an authorized repo collaborator (permission=${permission}).`);
